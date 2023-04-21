@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<head>
+    <title>ffcut calculator</title>
+    <meta charset='UTF-8'>
+    <script type="text/javascript" src='./main.js'></script>
+</head>
+<body>
+    <h1>ffcut calculator</h1>
+    <p>
+
+        <div style="display:table-row;">
+            <div style="display:table-cell;">入力:&emsp; </div>
+            <div style="display:table-cell;"><input type="text" id="ifile" name="ifile"></div>
+        </div>
+
+        <div style="display:table-row;">
+            <div style="display:table-cell;">出力:&emsp; </div>
+            <div style="display:table-cell;"><input type="text" id="ofile" name="ofile"></div>
+        </div>
+
+        <div style="display:table-row;">
+            <div style="display:table-cell;">開始時間&emsp; </div>
+            <div style="display:table-cell;"><input type="text" id="start" name="start"></div>
+        </div>
+
+        <div style="display:table-row;">
+            <div style="display:table-cell;">終了時間&emsp; </div>
+            <div style="display:table-cell;"><input type="text" id="end" name="end"></div>
+        </div>
+
+        <div style="display:table-row;">
+            <div style="display:table-cell;">音声のみ:&emsp; </div>
+            <div style="display:table-cell;"><input type="checkbox" id="audioonly" name="audioonly"></div>
+        </div>
+
+    </p>
+
+    <p><b>Generator</b></p>
+    
+    <div id ="generator" style="padding: 10px; margin-bottom: 10px; border: 1px dotted #333333;">
+        ここに生成結果が表示されます
+    </div>
+</body>
