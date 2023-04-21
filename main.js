@@ -24,11 +24,9 @@ window.addEventListener('DOMContentLoaded', function(){
     input_endTime.addEventListener("input",function(){generate(); });
     input_audioonly.addEventListener("change",function(){generate(); });
 
-    console.log("あああ");
 });
 
 function generate(){
-    console.log("いいい");
 
     ifile = input_ifile.value;
     ofile = input_ofile.value;
@@ -39,11 +37,17 @@ function generate(){
     var [startHours, startMinutes, startSeconds] = startTime.split(':');
     var startSec = Number(startHours) * 60 * 60 + Number(startMinutes) * 60 + Number(startSeconds);
 
+    var [endHours, endMinutes, endSeconds] = endTime.split(':');
+    var endSec = Number(endHours) * 60 * 60 + Number(endMinutes) * 60 + Number(endSeconds);
+
+    var durationSec = endSec - startSec;
+
     var command = "";
     if (audioonly) {
-        command = "ffmpeg -ss " + startSec + " -to " + endTime + " -i " + ifile + " -c copy " + ofile;
+        // ffmpeg -ss [duration] -i input.mp4 -t [duration] -c copy output.mp4
+        command = "ffmpeg -ss " + startSec + " -i '" + ifile + "' -t " + durationSec + " -c copy '" + ofile + "'";
     } else {
-        command = "ffmpeg -ss " + startSec + " -to " + endTime + " -i " + ifile + " " + ofile;
+        command = "ffmpeg -ss " + startSec + " -i '" + ifile + "' -t " + durationSec + " '" + ofile + "'";
     }
     
     document.getElementById("generator").innerHTML = command;
